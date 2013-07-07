@@ -30,6 +30,9 @@ BOARD_USE_FROYO_LIBCAMERA := true
 # inherit from the proprietary version
 -include vendor/htc/marvel/BoardConfigVendor.mk
 
+# Make sure this folder exists so display stuff doesn't fail
+$(shell mkdir -p $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/)
+
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
@@ -97,21 +100,23 @@ BOARD_USES_QCOM_LIBRPC := true
 #mtd5: 09600000 00040000 "userdata"
 #mtd6: 00a00000 00040000 "devlog"
 
-BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00340000
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00500000
+BOARD_BOOTIMAGE_PARTITION_SIZE := 5730304
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 5730304
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x10400000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x09600000
 
 BOARD_FLASH_BLOCK_SIZE := 262144
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
-TARGET_PREBUILT_KERNEL := device/htc/marvel/prebuilt/kernel
-LOCAL_KERNEL := device/htc/marvel/prebuilt/kernel
 
 #BOARD_CAMERA_USE_GETBUFFERINFO := true
 #TARGET_SPECIFIC_HEADER_PATH := device/htc/marvel/include
 
-#TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/marvel/prebuilt/recovery_kernel
+### Kernel
+TARGET_KERNEL_SOURCE := kernel/htc/msm7227
+TARGET_KERNEL_CONFIG := marvel_defconfig
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
+
 #BOARD_USES_RECOVERY_CHARGEMODE := true
 TARGET_RECOVERY_INITRC := device/htc/marvel/init.recovery.rc
 BOARD_HAS_NO_SELECT_BUTTON := true
