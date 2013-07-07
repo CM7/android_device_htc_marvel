@@ -108,10 +108,6 @@ PRODUCT_COPY_FILES += \
     device/common/gps/gps.conf_US:system/etc/gps.conf \
     vendor/cyanogen/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
 # Prebuilt Modules
 PRODUCT_COPY_FILES += \
     device/htc/marvel/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
