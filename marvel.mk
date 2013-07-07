@@ -108,20 +108,12 @@ PRODUCT_COPY_FILES += \
     device/common/gps/gps.conf_US:system/etc/gps.conf \
     vendor/cyanogen/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
-# Kernel modules
-
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/htc/marvel/prebuilt/kernel
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 # Prebuilt Modules
 PRODUCT_COPY_FILES += \
-    device/htc/marvel/prebuilt/bcm4329.ko:system/lib/modules/bcm4329.ko \
     device/htc/marvel/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
     device/htc/marvel/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
     device/htc/marvel/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
