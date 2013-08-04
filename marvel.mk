@@ -122,6 +122,11 @@ $(call inherit-product, device/htc/common/common.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
 
-
-PRODUCT_NAME := generic_marvel
+#
+# Setup device specific product configuration.
+#
+PRODUCT_NAME := full_marvel
+PRODUCT_BRAND := htc_wwe
 PRODUCT_DEVICE := marvel
+PRODUCT_MODEL := HTC Wildfire S
+PRODUCT_MANUFACTURER := HTC
